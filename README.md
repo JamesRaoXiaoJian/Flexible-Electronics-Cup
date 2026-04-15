@@ -1,1 +1,1 @@
-Page[https://jamesraoxiaojian.github.io/Flexible-Electronics-Cup/]
+[Page](https://jamesraoxiaojian.github.io/Flexible-Electronics-Cup/)

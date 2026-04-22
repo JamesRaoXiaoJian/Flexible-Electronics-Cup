@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>柔创杯</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.jsdelivr.net/npm/flowbite@2.0.0/dist/flowbite.min.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Noto+Sans+SC:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -40,26 +39,6 @@
         h1, h2, h3, .font-heading {
             font-family: 'Montserrat', 'Noto Sans SC', system-ui, sans-serif !important;
         }
-        /* Navigation underline animation */
-        .nav-link {
-            position: relative;
-        }
-
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            bottom: -2px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--primary);
-            transition: width 300ms ease;
-        }
-
-        .nav-link:hover::after {
-            width: 100%;
-        }
-
         /* Card hover effects */
         .card-hover {
             transition: transform 300ms ease, box-shadow 300ms ease;
@@ -68,38 +47,6 @@
         .card-hover:hover {
             transform: translateY(-4px);
             box-shadow: var(--shadow-lg);
-        }
-
-        /* CTA Button pulse */
-        .cta-pulse {
-            animation: ctaPulse 2500ms infinite;
-        }
-
-        @keyframes ctaPulse {
-            0%, 100% { box-shadow: 0 0 0 0 oklch(0.75 0.15 70 / 0.4); }
-            50% { box-shadow: 0 0 0 12px oklch(0.75 0.15 70 / 0); }
-        }
-
-        /* Timeline */
-        .timeline-progress {
-            height: 4px;
-            background: linear-gradient(90deg, var(--primary) 0%, var(--accent) 100%);
-            width: 0;
-            transition: width 800ms ease-out;
-        }
-
-        .timeline-node {
-            transition: transform 400ms ease, box-shadow 400ms ease;
-        }
-
-        .timeline-node:hover {
-            transform: scale(1.3);
-            box-shadow: 0 0 0 8px oklch(0.52 0.18 245 / 0.2);
-        }
-
-        .timeline-node.active {
-            transform: scale(1.4);
-            box-shadow: 0 0 0 8px oklch(0.52 0.18 245 / 0.3);
         }
 
         /* Scroll reveal */
@@ -112,29 +59,6 @@
         .reveal.visible {
             opacity: 1;
             transform: translateY(0);
-        }
-
-        /* News card number */
-        .news-number {
-            font-size: 3rem;
-            font-weight: 700;
-            line-height: 1;
-            background: linear-gradient(135deg, var(--primary), var(--accent));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        /* Partner logo grayscale */
-        .partner-logo {
-            filter: grayscale(100%);
-            opacity: 0.6;
-            transition: filter 300ms ease, opacity 300ms ease;
-        }
-
-        .partner-logo:hover {
-            filter: grayscale(0%);
-            opacity: 1;
         }
 
         /* Floating Navigation */
@@ -167,39 +91,8 @@
     </style>
 </head>
 <body class="bg-white">
-    <!-- Floating Navigation -->
-    <nav class="floating-nav">
-        <div class="flex flex-col rounded-r-lg overflow-hidden shadow-lg" style="background: white;">
-            <a href="#hero" class="floating-nav-item border-b border-gray-100" style="color: var(--foreground);">首页</a>
-            <a href="#schedule" class="floating-nav-item border-b border-gray-100" style="color: var(--foreground);">赛程</a>
-            <a href="#track" class="floating-nav-item border-b border-gray-100" style="color: var(--foreground);">赛道</a>
-            <a href="#org" class="floating-nav-item border-b border-gray-100" style="color: var(--foreground);">组织</a>
-            <a href="#contact" class="floating-nav-item" style="color: var(--foreground);">联系</a>
-        </div>
-    </nav>
-
-    <!-- Header -->
-    <header class="bg-white border-b border-gray-200 sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-16">
-                <!-- Logo -->
-                <div class="flex items-center gap-3">
-                    <img src="assets/logo.jpg" alt="柔创杯" class="h-10 w-auto rounded-lg">
-                    <span class="font-heading font-bold text-lg" style="color: var(--primary);">柔创杯</span>
-                </div>
-
-                <!-- CTA Button -->
-                <div class="flex items-center gap-3">
-                    <a href="#" class="px-4 py-2 text-sm font-medium rounded-lg text-white transition-all" style="background: var(--secondary);" onmouseover="this.style.background='var(--secondary-hover)'" onmouseout="this.style.background='var(--secondary)'">
-                        参赛详情页入口
-                    </a>
-                </div>
-            </div>
-        </div>
-    </header>
-
     <!-- Hero Section -->
-    <section id="hero" style="height: 420px; position: relative; background: linear-gradient(135deg, oklch(0.52 0.18 245) 0%, oklch(0.35 0.15 260) 50%, oklch(0.25 0.10 270) 100%);">
+    <section id="hero" style="height: 420px; position: relative; background-image: url('assets/logo.png'), url('assets/background.jpg'); background-size: 180px auto, cover; background-position: left 2rem top 1.5rem, center; background-repeat: no-repeat, no-repeat;">
         <div style="position: absolute; inset: 0; background: radial-gradient(ellipse at 30% 20%, transparent 0%, oklch(0 0 0 / 0.3) 100%);"></div>
         <div class="relative z-10 h-full flex items-center">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
@@ -227,298 +120,197 @@
                     2026年度大赛报名火热进行中
                 </h2>
                 <p class="text-white/80 text-sm">
-                    竞赛时间：6月13、14日 · 中山大学深圳校区
+                    竞赛时间：6月14日 · 中山大学深圳校区
                 </p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Schedule Section -->
-    <section id="schedule" class="py-6 bg-white border-t border-gray-100">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-4 reveal">
-                <h2 class="font-heading text-lg font-bold mb-1" style="color: var(--foreground);">赛程安排</h2>
-            </div>
-
-            <div class="relative reveal" style="transition-delay: 100ms;">
-                <!-- Progress Line -->
-                <div class="absolute top-1/2 left-0 right-0 h-1 -translate-y-1/2 rounded-full bg-gray-200"></div>
-                <div class="timeline-progress" id="timelineProgress"></div>
-
-                <!-- Timeline Nodes -->
-                <div class="flex justify-between relative">
-                    <div class="flex flex-col items-center">
-                        <div class="timeline-node active w-10 h-10 rounded-full bg-white border-4 flex items-center justify-center cursor-pointer z-10" style="border-color: var(--primary);">
-                            <span class="text-xs font-bold" style="color: var(--primary);">1</span>
-                        </div>
-                        <div class="mt-3 text-center">
-                            <p class="font-medium text-xs" style="color: var(--foreground);">报名</p>
-                            <p class="text-xs whitespace-nowrap" style="color: var(--muted-foreground);">4.11-4.30</p>
-                        </div>
-                    </div>
-
-                    <div class="flex flex-col items-center">
-                        <div class="timeline-node w-10 h-10 rounded-full bg-white border-4 flex items-center justify-center cursor-pointer z-10" style="border-color: var(--primary);">
-                            <span class="text-xs font-bold" style="color: var(--primary);">2</span>
-                        </div>
-                        <div class="mt-3 text-center">
-                            <p class="font-medium text-xs" style="color: var(--foreground);">开发</p>
-                            <p class="text-xs whitespace-nowrap" style="color: var(--muted-foreground);">4.11-6.1</p>
-                        </div>
-                    </div>
-
-                    <div class="flex flex-col items-center">
-                        <div class="timeline-node w-10 h-10 rounded-full bg-white border-4 flex items-center justify-center cursor-pointer z-10" style="border-color: var(--primary);">
-                            <span class="text-xs font-bold" style="color: var(--primary);">3</span>
-                        </div>
-                        <div class="mt-3 text-center">
-                            <p class="font-medium text-xs" style="color: var(--foreground);">评审</p>
-                            <p class="text-xs whitespace-nowrap" style="color: var(--muted-foreground);">6.2-6.4</p>
-                        </div>
-                    </div>
-
-                    <div class="flex flex-col items-center">
-                        <div class="timeline-node w-10 h-10 rounded-full bg-white border-4 flex items-center justify-center cursor-pointer z-10" style="border-color: var(--primary);">
-                            <span class="text-xs font-bold" style="color: var(--primary);">4</span>
-                        </div>
-                        <div class="mt-3 text-center">
-                            <p class="font-medium text-xs" style="color: var(--foreground);">筹备</p>
-                            <p class="text-xs whitespace-nowrap" style="color: var(--muted-foreground);">6.2-6.5</p>
-                        </div>
-                    </div>
-
-                    <div class="flex flex-col items-center">
-                        <div class="timeline-node w-10 h-10 rounded-full bg-white border-4 flex items-center justify-center cursor-pointer z-10" style="border-color: var(--secondary);">
-                            <span class="text-xs font-bold" style="color: var(--secondary);">5</span>
-                        </div>
-                        <div class="mt-3 text-center">
-                            <p class="font-medium text-xs" style="color: var(--secondary);">决赛</p>
-                            <p class="text-xs whitespace-nowrap" style="color: var(--muted-foreground);">6.6-6.7</p>
-                        </div>
-                    </div>
-
-                    <div class="flex flex-col items-center">
-                        <div class="timeline-node w-10 h-10 rounded-full bg-white border-4 flex items-center justify-center cursor-pointer z-10" style="border-color: var(--secondary);">
-                            <span class="text-xs font-bold" style="color: var(--secondary);">6</span>
-                        </div>
-                        <div class="mt-3 text-center">
-                            <p class="font-medium text-xs" style="color: var(--secondary);">总结</p>
-                            <p class="text-xs whitespace-nowrap" style="color: var(--muted-foreground);">6.8-6.30</p>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
 
     <!-- Open Track Section -->
     <section id="track" class="py-12 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-screen-2xl mx-auto px-6 sm:px-8 lg:px-10">
             <div class="text-center mb-8 reveal">
                 <h2 class="font-heading text-2xl md:text-3xl font-bold mb-2" style="color: var(--foreground);">赛事详情</h2>
                 <p class="text-sm" style="color: var(--muted-foreground);">柔性电子 + 具身智能前沿创新 · 不限硬件平台</p>
             </div>
 
-            <div class="max-w-4xl mx-auto reveal" style="transition-delay: 200ms;">
-                <!-- Open Track Card -->
-                <div class="card-hover bg-white rounded-2xl border border-gray-200 overflow-hidden">
-                    <div class="p-8 border-b border-gray-100" style="background: linear-gradient(135deg, oklch(0.52 0.18 245 / 0.08) 0%, oklch(0.65 0.15 180 / 0.08) 100%);">
-                        <div class="flex items-center gap-5">
-                            <div class="w-16 h-16 rounded-2xl flex items-center justify-center" style="background: var(--primary);">
-                                <i data-lucide="flask-conical" class="w-8 h-8 text-white"></i>
-                            </div>
-                            <div>
-                                <h3 class="font-bold text-2xl" style="color: var(--foreground);">开放赛道</h3>
-                                <p class="text-base" style="color: var(--muted-foreground);">Open Track</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="p-8">
-                        <p class="text-base leading-relaxed mb-6" style="color: var(--foreground);">
-                            本赛道聚焦嵌入式系统技术在柔性电子核心应用场景的创新实践，鼓励参赛队伍探索柔性显示、可穿戴设备、健康医疗、智能传感等领域的前沿技术解决方案。参赛作品应体现理论创新度、技术突破性与实际应用价值的统一。
-                        </p>
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <div class="flex items-start gap-3">
-                                <div class="flex-shrink-0">
-                                    <span class="text-xs font-semibold px-2 py-1 rounded" style="background: oklch(0.52 0.18 245 / 0.1); color: var(--primary);">参赛门槛</span>
-                                </div>
-                                <p class="text-sm" style="color: var(--foreground);">中高，侧重科研创新与前沿探索</p>
-                            </div>
-                            <div class="flex items-start gap-3">
-                                <div class="flex-shrink-0">
-                                    <span class="text-xs font-semibold px-2 py-1 rounded" style="background: oklch(0.52 0.18 245 / 0.1); color: var(--primary);">评审核心</span>
-                                </div>
-                                <p class="text-sm" style="color: var(--foreground);">理论创新度、技术突破性、学术价值</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Organization Structure Section -->
-    <section id="org" class="py-12" style="background: var(--background-alt);">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-8 reveal">
-                <h2 class="font-heading text-2xl md:text-3xl font-bold mb-2" style="color: var(--foreground);">组织架构</h2>
-                <p class="text-sm" style="color: var(--muted-foreground);">大赛组织单位与职责分工</p>
-            </div>
-
-            <div class="space-y-6 reveal" style="transition-delay: 200ms;">
-                <!-- Top Tier: 主办单位 & 联合主办单位 -->
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                    <!-- 主办单位 -->
-                    <div class="card-hover bg-white rounded-xl p-6 border-t-4" style="border-color: var(--primary);">
-                        <div class="flex items-center gap-3 mb-4">
-                            <div class="w-10 h-10 rounded-lg flex items-center justify-center" style="background: var(--primary);">
-                                <i data-lucide="flag" class="w-5 h-5 text-white"></i>
-                            </div>
-                            <h3 class="font-bold text-lg" style="color: var(--foreground);">主办单位</h3>
-                        </div>
-                        <ul class="space-y-2 text-sm" style="color: var(--muted-foreground);">
-                            <li class="font-medium">中山大学</li>
-                            <li class="font-medium">中山大学（深圳）柔性电子学院</li>
-                        </ul>
-                        <div class="mt-4 pt-4 border-t border-gray-100">
-                            <p class="text-xs" style="color: var(--muted-foreground);">赛事顶层规划、赛事规则审定、总奖金池保障、核心资源统筹、赛事品牌所有权</p>
-                        </div>
-                    </div>
-
-                <!-- 中山大学（深圳）柔性电子学院介绍 -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8 reveal" style="transition-delay: 200ms;">
+                <!-- 赛事介绍 -->
                 <div class="card-hover bg-white rounded-xl p-6 border border-gray-200">
                     <div class="flex items-center gap-3 mb-4">
-                        <div class="w-10 h-10 rounded-lg flex items-center justify-center" style="background: var(--accent);">
-                            <i data-lucide="school" class="w-5 h-5 text-white"></i>
+                        <div class="w-10 h-10 rounded-lg flex items-center justify-center" style="background: var(--primary);">
+                            <i data-lucide="book-open-text" class="w-5 h-5 text-white"></i>
                         </div>
-                        <h3 class="font-bold text-lg" style="color: var(--foreground);">中山大学（深圳）柔性电子学院</h3>
+                        <h3 class="font-bold text-lg" style="color: var(--foreground);">赛事介绍</h3>
                     </div>
-                    <div class="border-t border-gray-100 pt-4">
-                        <p class="text-sm leading-relaxed" style="color: var(--muted-foreground);">
-                            中山大学柔性电子学院是中山大学面向未来电子信息技术，于2023年4月成立的新学院，位于深圳市光明区。学院以中国科学院院士黄维教授为学科带头人，大师领航，汇聚全球知名学者与优秀青年人才。
-                        </p>
-                        <p class="text-sm leading-relaxed mt-3" style="color: var(--muted-foreground);">
-                            依托电子科学与技术"双一流"一级学科，学院重点建设柔性电子学交叉学科。面向新一代信息技术、人工智能、柔性显示等国家重大战略及粤港澳大湾区发展需求，聚焦柔性电子先进材料、柔性光电功能器件和柔性电子智能系统三个优势领域，构建"材料—器件—系统"全链条协同创新生态，实现光电材料及器件的柔性化、智能化和集成化，引领具有"轻、薄、柔、透"四大特性的新一代信息技术的发展。学院服务国家重大科技战略需求与粤港澳大湾区建设需要，积极打造柔性电子领域国家科技战略力量创新体系，构建国内顶尖、国际领跑的基础学科世界一流大学贡献力量。
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Second Tier: 承办单位 -->
-                <div class="grid grid-cols-1 lg:grid-cols-1 gap-6">
-                    <!-- 承办单位 -->
-                    <div class="card-hover bg-white rounded-xl p-6 border border-gray-200">
-                        <div class="flex items-center gap-3 mb-4">
-                            <div class="w-10 h-10 rounded-lg flex items-center justify-center bg-gray-100">
-                                <i data-lucide="briefcase" class="w-5 h-5" style="color: var(--foreground);"></i>
-                            </div>
-                            <h3 class="font-semibold text-base" style="color: var(--foreground);">承办单位</h3>
-                        </div>
-                        <ul class="space-y-2 text-sm" style="color: var(--muted-foreground);">
-                            <li class="font-medium">南京邮电大学、南京工业大学、西北工业大学、厦门大学、福建师范大学、河南大学</li>
-                        </ul>
-                        <div class="mt-4 pt-4 border-t border-gray-100">
-                            <p class="text-xs" style="color: var(--muted-foreground);">赛事全流程执行统筹、秘书处日常运营、总决赛主会场落地、参赛队伍管理、评审全流程组织</p>
-                        </div>
-                    </div>
-
-                    <!-- 协办单位 -->
-                    <div class="card-hover bg-white rounded-xl p-6 border border-gray-200">
-                        <div class="flex items-center gap-3 mb-4">
-                            <div class="w-10 h-10 rounded-lg flex items-center justify-center bg-gray-100">
-                                <i data-lucide="users" class="w-5 h-5" style="color: var(--foreground);"></i>
-                            </div>
-                            <h3 class="font-semibold text-base" style="color: var(--foreground);">协办单位</h3>
-                        </div>
-                        <ul class="space-y-2 text-sm" style="color: var(--muted-foreground);">
-                            <li class="font-medium">地瓜机器人、优必选科技、深圳大学、香港理工大学、深圳技术大学、人工智能与数字经济广东省实验室等</li>
-                        </ul>
-                        <div class="mt-4 pt-4 border-t border-gray-100">
-                            <p class="text-xs" style="color: var(--muted-foreground);">赛事技术社区支持、开源生态保障、线上技术培训与答疑、参赛作品开源推广</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Third Tier: 专家委员会 -->
-                <div class="grid grid-cols-1 lg:grid-cols-1 gap-6">
-                    <!-- 专家委员会 -->
-                    <div class="card-hover bg-white rounded-xl p-6">
-                        <div class="flex items-center gap-3 mb-4">
-                            <div class="w-10 h-10 rounded-lg flex items-center justify-center bg-gray-100">
-                                <i data-lucide="graduation-cap" class="w-5 h-5" style="color: var(--foreground);"></i>
-                            </div>
-                            <h3 class="font-semibold text-base" style="color: var(--foreground);">专家委员会</h3>
-                        </div>
-                        <ul class="space-y-1 text-sm" style="color: var(--muted-foreground);">
-                            <li>• 柔性电子领域高校教授</li>
-                            <li>• 具身智能行业专家</li>
-                            <li>• 地瓜机器人技术专家</li>
-                            <li>• 资深赛事评审专家</li>
-                        </ul>
-                        <div class="mt-4 pt-4 border-t border-gray-100">
-                            <p class="text-xs" style="color: var(--muted-foreground);">赛题制定、评审标准审定、参赛作品全流程评审、学术争议裁定、赛事学术规范性监督</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer style="background: var(--footer-bg);">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
-                <!-- Brand -->
-                <div class="col-span-1 md:col-span-2" id="contact">
-                    <div class="flex items-center gap-3 mb-4">
-                        <img src="assets/logo.jpg" alt="柔创杯" class="h-10 w-auto rounded-lg">
-                        <span class="font-heading font-bold text-lg text-white">柔创杯</span>
-                    </div>
-                    <p class="text-white/70 text-sm mb-4">
+                    <p class="text-sm leading-relaxed" style="color: var(--muted-foreground);">
                         大赛聚焦嵌入式系统技术在柔性显示、可穿戴设备、健康医疗、智能传感等柔性电子核心应用场景的创新实践，旨在提高高校学生在嵌入式芯片及系统设计领域和柔性电子应用领域的自主创新设计与工程实践能力，培养具有创新思维、具备解决复杂工程问题能力且拥有团队合作精神的优秀人才。
                     </p>
                 </div>
 
-                <!-- Contact -->
-                <div>
-                    <h4 class="font-semibold text-white mb-4">联系我们</h4>
-                    <ul class="space-y-2">
-                        <li class="text-white/70 text-sm">邮箱: fec_sysu_sfe@163.com</li>
-                        <li class="text-white/70 text-sm">电话: 19174193393</li>
-                        <li class="text-white/70 text-sm">地址: 中山大学深圳校区</li>
+                <!-- 比赛安排 -->
+                <div class="card-hover bg-white rounded-xl p-6 border border-gray-200">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-10 h-10 rounded-lg flex items-center justify-center" style="background: var(--accent);">
+                            <i data-lucide="calendar-days" class="w-5 h-5 text-white"></i>
+                        </div>
+                        <h3 class="font-bold text-lg" style="color: var(--foreground);">比赛安排</h3>
+                    </div>
+                    <ul class="space-y-3 text-sm">
+                        <li class="flex items-center justify-between rounded-lg border border-gray-100 px-3 py-2" style="background: var(--background-alt);">
+                            <span class="inline-flex items-center gap-2" style="color: var(--foreground);">
+                                <span class="w-6 h-6 rounded-md flex items-center justify-center" style="background: oklch(0.65 0.15 180 / 0.18); color: var(--accent);">
+                                    <i data-lucide="clipboard-pen" class="w-3.5 h-3.5"></i>
+                                </span>
+                                报名时间
+                            </span>
+                            <span class="text-xs font-semibold px-2 py-1 rounded-md" style="background: white; color: var(--muted-foreground);">4.11-4.30</span>
+                        </li>
+                        <li class="flex items-center justify-between rounded-lg border border-gray-100 px-3 py-2" style="background: var(--background-alt);">
+                            <span class="inline-flex items-center gap-2" style="color: var(--foreground);">
+                                <span class="w-6 h-6 rounded-md flex items-center justify-center" style="background: oklch(0.65 0.15 180 / 0.18); color: var(--accent);">
+                                    <i data-lucide="calendar-check-2" class="w-3.5 h-3.5"></i>
+                                </span>
+                                比赛时间
+                            </span>
+                            <span class="text-xs font-semibold px-2 py-1 rounded-md" style="background: white; color: var(--muted-foreground);">6.14</span>
+                        </li>
                     </ul>
                 </div>
 
-                <!-- QR Codes -->
-                <div class="flex items-start justify-center gap-6">
-                    <div class="text-center">
-                        <div class="w-20 h-20 bg-white rounded-lg mb-2 overflow-hidden flex items-center justify-center">
-                            <img src="assets/wechat-group-qrcode.png" alt="微信群二维码" class="w-full h-full object-cover">
+                <!-- 开放赛道 -->
+                <div class="card-hover bg-white rounded-xl p-6 border border-gray-200">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-10 h-10 rounded-lg flex items-center justify-center" style="background: var(--primary);">
+                            <i data-lucide="flask-conical" class="w-5 h-5 text-white"></i>
                         </div>
-                        <p class="text-white/70 text-sm">微信群</p>
+                        <h3 class="font-bold text-lg" style="color: var(--foreground);">开放赛道</h3>
                     </div>
-                    <div class="text-center">
-                        <div class="w-20 h-20 bg-white rounded-lg mb-2 overflow-hidden flex items-center justify-center">
-                            <img src="assets/wechat-qrcode.png" alt="公众号二维码" class="w-full h-full object-cover">
-                        </div>
-                        <p class="text-white/70 text-sm">公众号</p>
+                    <p class="text-sm leading-relaxed mb-4" style="color: var(--muted-foreground);">
+                        本赛道聚焦嵌入式系统技术在柔性电子核心应用场景的创新实践，鼓励参赛队伍探索柔性显示、可穿戴设备、健康医疗、智能传感等领域的前沿技术解决方案。
+                    </p>
+                    <div class="pt-4 border-t border-gray-100">
+                        <p class="text-sm" style="color: var(--foreground);">
+                            <span class="font-semibold">评审核心：</span>理论创新度、技术突破性、学术价值
+                        </p>
                     </div>
                 </div>
-            </div>
 
-            <div class="border-t border-white/10 pt-8">
-                <div class="flex flex-col md:flex-row items-center justify-between gap-4">
-                    <p class="text-white/50 text-sm">
-                        © 2026 "柔创杯"大学生嵌入式系统设计竞赛组委会. 保留所有权利.
-                    </p>
-                    <div class="flex items-center gap-6">
-                        <a href="#" class="text-white/50 text-sm hover:text-white transition-all">隐私政策</a>
-                        <a href="#" class="text-white/50 text-sm hover:text-white transition-all">使用条款</a>
-                        <span class="text-white/50 text-sm">京ICP备XXXXXXXX号</span>
+                <!-- 比赛奖金 -->
+                <div class="card-hover bg-white rounded-xl p-6 border border-gray-200">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-10 h-10 rounded-lg flex items-center justify-center" style="background: var(--accent);">
+                            <i data-lucide="trophy" class="w-5 h-5 text-white"></i>
+                        </div>
+                        <h3 class="font-bold text-lg" style="color: var(--foreground);">比赛奖金</h3>
+                    </div>
+                    <ul class="space-y-3 text-sm">
+                        <li class="flex items-center justify-between rounded-lg border border-gray-100 px-3 py-2" style="background: var(--background-alt);">
+                            <span class="inline-flex items-center gap-2" style="color: var(--foreground);">
+                                <span class="w-6 h-6 rounded-md flex items-center justify-center" style="background: oklch(0.75 0.15 70 / 0.22); color: var(--secondary);">
+                                    <i data-lucide="medal" class="w-3.5 h-3.5"></i>
+                                </span>
+                                一等奖
+                            </span>
+                            <span class="text-xs font-semibold px-2 py-1 rounded-md" style="background: white; color: var(--muted-foreground);">2000元</span>
+                        </li>
+                        <li class="flex items-center justify-between rounded-lg border border-gray-100 px-3 py-2" style="background: var(--background-alt);">
+                            <span class="inline-flex items-center gap-2" style="color: var(--foreground);">
+                                <span class="w-6 h-6 rounded-md flex items-center justify-center" style="background: oklch(0.75 0.15 70 / 0.22); color: var(--secondary);">
+                                    <i data-lucide="award" class="w-3.5 h-3.5"></i>
+                                </span>
+                                二等奖
+                            </span>
+                            <span class="text-xs font-semibold px-2 py-1 rounded-md" style="background: white; color: var(--muted-foreground);">1000元</span>
+                        </li>
+                        <li class="flex items-center justify-between rounded-lg border border-gray-100 px-3 py-2" style="background: var(--background-alt);">
+                            <span class="inline-flex items-center gap-2" style="color: var(--foreground);">
+                                <span class="w-6 h-6 rounded-md flex items-center justify-center" style="background: oklch(0.75 0.15 70 / 0.22); color: var(--secondary);">
+                                    <i data-lucide="badge-check" class="w-3.5 h-3.5"></i>
+                                </span>
+                                三等奖
+                            </span>
+                            <span class="text-xs font-semibold px-2 py-1 rounded-md" style="background: white; color: var(--muted-foreground);">500元</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- 报名联系 -->
+                <div class="card-hover bg-white rounded-xl p-6 border border-gray-200" id="contact">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-10 h-10 rounded-lg flex items-center justify-center" style="background: var(--secondary);">
+                            <i data-lucide="phone-call" class="w-5 h-5 text-white"></i>
+                        </div>
+                        <h3 class="font-bold text-lg" style="color: var(--foreground);">报名联系</h3>
+                    </div>
+                    <ul class="space-y-2 text-sm mb-4" style="color: var(--muted-foreground);">
+                        <li>邮箱：fec_sysu_sfe@163.com</li>
+                        <li>电话：19174193393</li>
+                    </ul>
+                    <div class="grid grid-cols-2 gap-3">
+                        <div class="text-center">
+                            <div class="w-20 h-20 mx-auto bg-gray-50 rounded-lg overflow-hidden flex items-center justify-center">
+                                <img src="assets/wechat-group-qrcode.png" alt="微信群二维码" class="w-full h-full object-cover">
+                            </div>
+                            <p class="text-xs mt-2" style="color: var(--muted-foreground);">微信群</p>
+                        </div>
+                        <div class="text-center">
+                            <div class="w-20 h-20 mx-auto bg-gray-50 rounded-lg overflow-hidden flex items-center justify-center">
+                                <img src="assets/wechat-qrcode.png" alt="公众号二维码" class="w-full h-full object-cover">
+                            </div>
+                            <p class="text-xs mt-2" style="color: var(--muted-foreground);">公众号</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </footer>
+    </section>
+
+    <!-- Organization Section -->
+    <section id="org" class="py-12" style="background: var(--background-alt);">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-8 reveal">
+                <h2 class="font-heading text-2xl md:text-3xl font-bold mb-2" style="color: var(--foreground);">相关单位</h2>
+                <p class="text-sm" style="color: var(--muted-foreground);">主办单位与协办单位</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 reveal" style="transition-delay: 200ms;">
+                <!-- 主办单位 -->
+                <div class="card-hover bg-white rounded-xl p-6 border-t-4" style="border-color: var(--primary);">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-10 h-10 rounded-lg flex items-center justify-center" style="background: var(--primary);">
+                            <i data-lucide="flag" class="w-5 h-5 text-white"></i>
+                        </div>
+                        <h3 class="font-bold text-lg" style="color: var(--foreground);">主办单位</h3>
+                    </div>
+                    <ul class="space-y-2 text-sm" style="color: var(--muted-foreground);">
+                        <li class="font-medium">中山大学柔性电子学院</li>
+                    </ul>
+                    <div class="mt-4 pt-4 border-t border-gray-100">
+                        <p class="text-sm leading-relaxed" style="color: var(--muted-foreground);">
+                            中山大学柔性电子学院于2023年4月成立，位于深圳市光明区，面向未来电子信息技术发展。学院以中国科学院院士黄维教授为学科带头人，汇聚海内外知名学者与青年人才。
+                        </p>
+                        <p class="text-sm leading-relaxed mt-3" style="color: var(--muted-foreground);">
+                            学院依托电子科学与技术"双一流"一级学科，重点建设柔性电子学交叉学科，聚焦柔性电子先进材料、柔性光电功能器件与柔性电子智能系统，打造"材料—器件—系统"协同创新链条，服务国家重大战略与粤港澳大湾区发展需求。
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 协办单位 -->
+                <div class="card-hover bg-white rounded-xl p-6 border border-gray-200">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-10 h-10 rounded-lg flex items-center justify-center bg-gray-100">
+                            <i data-lucide="users" class="w-5 h-5" style="color: var(--foreground);"></i>
+                        </div>
+                        <h3 class="font-semibold text-base" style="color: var(--foreground);">协办单位</h3>
+                    </div>
+                    <ul class="space-y-2 text-sm" style="color: var(--muted-foreground);">
+                        <li class="font-medium">地瓜机器人、优必选科技、深圳大学、深圳技术大学、人工智能与数字经济广东省实验室</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <script>
         // Initialize Lucide icons
@@ -539,18 +331,6 @@
 
         window.addEventListener('scroll', revealOnScroll);
         window.addEventListener('load', revealOnScroll);
-
-        // Timeline progress animation
-        const timelineProgress = document.getElementById('timelineProgress');
-        const animateTimeline = () => {
-            const rect = timelineProgress.getBoundingClientRect();
-            if (rect.top < window.innerHeight - 100) {
-                timelineProgress.style.width = '100%';
-            }
-        };
-
-        window.addEventListener('scroll', animateTimeline);
-        window.addEventListener('load', animateTimeline);
 
     </script>
 </body>

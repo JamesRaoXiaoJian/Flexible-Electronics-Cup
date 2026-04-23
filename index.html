@@ -61,6 +61,62 @@
             transform: translateY(0);
         }
 
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            overflow: hidden;
+        }
+
+        .hero-slide {
+            position: absolute;
+            inset: 0;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            opacity: 0;
+            transition: opacity 900ms ease;
+        }
+
+        .hero-slide.active {
+            opacity: 1;
+        }
+
+        .hero-logo {
+            position: absolute;
+            top: 1.5rem;
+            left: 2rem;
+            width: 180px;
+            height: auto;
+            z-index: 15;
+            pointer-events: none;
+        }
+
+        .hero-controls {
+            position: absolute;
+            left: 50%;
+            bottom: 1.25rem;
+            transform: translateX(-50%);
+            z-index: 20;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .hero-control-btn {
+            width: 12px;
+            height: 12px;
+            border-radius: 9999px;
+            border: 1px solid rgba(255, 255, 255, 0.7);
+            background: rgba(255, 255, 255, 0.35);
+            transition: all 200ms ease;
+        }
+
+        .hero-control-btn.active {
+            width: 28px;
+            background: white;
+            border-color: white;
+        }
+
         /* Floating Navigation */
         .floating-nav {
             position: fixed;
@@ -92,8 +148,19 @@
 </head>
 <body class="bg-white">
     <!-- Hero Section -->
-    <section id="hero" style="height: 420px; position: relative; background-image: url('assets/logo.png'), url('assets/background.jpg'); background-size: 180px auto, cover; background-position: left 2rem top 1.5rem, center; background-repeat: no-repeat, no-repeat;">
-        <div style="position: absolute; inset: 0; background: radial-gradient(ellipse at 30% 20%, transparent 0%, oklch(0 0 0 / 0.3) 100%);"></div>
+    <section id="hero" style="height: 420px; position: relative;">
+        <div class="hero-bg">
+            <div class="hero-slide active" style="background-image: url('assets/background0.jpg');"></div>
+            <div class="hero-slide" style="background-image: url('assets/background1.jpg');"></div>
+            <div class="hero-slide" style="background-image: url('assets/background2.png');"></div>
+        </div>
+        <img src="assets/logo.png" alt="柔创杯标志" class="hero-logo">
+        <div style="position: absolute; inset: 0; background: radial-gradient(ellipse at 30% 20%, transparent 0%, oklch(0 0 0 / 0.3) 100%); z-index: 10;"></div>
+        <div class="hero-controls">
+            <button type="button" class="hero-control-btn active" aria-label="切换到背景1" data-slide="0"></button>
+            <button type="button" class="hero-control-btn" aria-label="切换到背景2" data-slide="1"></button>
+            <button type="button" class="hero-control-btn" aria-label="切换到背景3" data-slide="2"></button>
+        </div>
         <div class="relative z-10 h-full flex items-center">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
                 <div class="max-w-2xl">
@@ -128,13 +195,13 @@
 
     <!-- Open Track Section -->
     <section id="track" class="py-12 bg-white">
-        <div class="max-w-screen-2xl mx-auto px-6 sm:px-8 lg:px-10">
+        <div class="mx-auto px-6 sm:px-8 lg:px-10" style="max-width: 2100px;">
             <div class="text-center mb-8 reveal">
                 <h2 class="font-heading text-2xl md:text-3xl font-bold mb-2" style="color: var(--foreground);">赛事详情</h2>
                 <p class="text-sm" style="color: var(--muted-foreground);">柔性电子 + 具身智能前沿创新 · 不限硬件平台</p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8 reveal" style="transition-delay: 200ms;">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-16 reveal" style="transition-delay: 200ms;">
                 <!-- 赛事介绍 -->
                 <div class="card-hover bg-white rounded-xl p-6 border border-gray-200">
                     <div class="flex items-center gap-3 mb-4">
@@ -164,7 +231,16 @@
                                 </span>
                                 报名时间
                             </span>
-                            <span class="text-xs font-semibold px-2 py-1 rounded-md" style="background: white; color: var(--muted-foreground);">4.11-6.10</span>
+                            <span class="text-xs font-semibold px-2 py-1 rounded-md" style="background: white; color: var(--muted-foreground);">4.11-5.20</span>
+                        </li>
+                        <li class="flex items-center justify-between rounded-lg border border-gray-100 px-3 py-2" style="background: var(--background-alt);">
+                            <span class="inline-flex items-center gap-2" style="color: var(--foreground);">
+                                <span class="w-6 h-6 rounded-md flex items-center justify-center" style="background: oklch(0.65 0.15 180 / 0.18); color: var(--accent);">
+                                    <i data-lucide="file-check-2" class="w-3.5 h-3.5"></i>
+                                </span>
+                                作品提交
+                            </span>
+                            <span class="text-xs font-semibold px-2 py-1 rounded-md" style="background: white; color: var(--muted-foreground);">5.21-6.05</span>
                         </li>
                         <li class="flex items-center justify-between rounded-lg border border-gray-100 px-3 py-2" style="background: var(--background-alt);">
                             <span class="inline-flex items-center gap-2" style="color: var(--foreground);">
@@ -196,6 +272,36 @@
                     </div>
                 </div>
 
+                <!-- 提交要求 -->
+                <div class="card-hover bg-white rounded-xl p-6 border border-gray-200">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-10 h-10 rounded-lg flex items-center justify-center" style="background: var(--primary);">
+                            <i data-lucide="file-check-2" class="w-5 h-5 text-white"></i>
+                        </div>
+                        <h3 class="font-bold text-lg" style="color: var(--foreground);">提交要求</h3>
+                    </div>
+                    <ul class="space-y-3 text-sm">
+                        <li class="flex items-center rounded-lg border border-gray-100 px-3 py-2 gap-2" style="background: var(--background-alt); color: var(--foreground);">
+                            <span class="w-6 h-6 rounded-md flex items-center justify-center" style="background: oklch(0.52 0.18 245 / 0.18); color: var(--primary);">
+                                <i data-lucide="presentation" class="w-3.5 h-3.5"></i>
+                            </span>
+                            PPT
+                        </li>
+                        <li class="flex items-center rounded-lg border border-gray-100 px-3 py-2 gap-2" style="background: var(--background-alt); color: var(--foreground);">
+                            <span class="w-6 h-6 rounded-md flex items-center justify-center" style="background: oklch(0.52 0.18 245 / 0.18); color: var(--primary);">
+                                <i data-lucide="file-text" class="w-3.5 h-3.5"></i>
+                            </span>
+                            Word
+                        </li>
+                        <li class="flex items-center rounded-lg border border-gray-100 px-3 py-2 gap-2" style="background: var(--background-alt); color: var(--foreground);">
+                            <span class="w-6 h-6 rounded-md flex items-center justify-center" style="background: oklch(0.52 0.18 245 / 0.18); color: var(--primary);">
+                                <i data-lucide="video" class="w-3.5 h-3.5"></i>
+                            </span>
+                            支撑视频
+                        </li>
+                    </ul>
+                </div>
+
                 <!-- 比赛奖金 -->
                 <div class="card-hover bg-white rounded-xl p-6 border border-gray-200">
                     <div class="flex items-center gap-3 mb-4">
@@ -221,7 +327,7 @@
                                 </span>
                                 二等奖
                             </span>
-                            <span class="text-xs font-semibold px-2 py-1 rounded-md" style="background: white; color: var(--muted-foreground);">1000元</span>
+                            <span class="text-xs font-semibold px-2 py-1 rounded-md" style="background: white; color: var(--muted-foreground);">1500元</span>
                         </li>
                         <li class="flex items-center justify-between rounded-lg border border-gray-100 px-3 py-2" style="background: var(--background-alt);">
                             <span class="inline-flex items-center gap-2" style="color: var(--foreground);">
@@ -230,7 +336,16 @@
                                 </span>
                                 三等奖
                             </span>
-                            <span class="text-xs font-semibold px-2 py-1 rounded-md" style="background: white; color: var(--muted-foreground);">500元</span>
+                            <span class="text-xs font-semibold px-2 py-1 rounded-md" style="background: white; color: var(--muted-foreground);">800元</span>
+                        </li>
+                        <li class="flex items-center justify-between rounded-lg border border-gray-100 px-3 py-2" style="background: var(--background-alt);">
+                            <span class="inline-flex items-center gap-2" style="color: var(--foreground);">
+                                <span class="w-6 h-6 rounded-md flex items-center justify-center" style="background: oklch(0.75 0.15 70 / 0.22); color: var(--secondary);">
+                                    <i data-lucide="gift" class="w-3.5 h-3.5"></i>
+                                </span>
+                                柔创之星
+                            </span>
+                            <span class="text-xs font-semibold px-2 py-1 rounded-md" style="background: white; color: var(--muted-foreground);">1000元</span>
                         </li>
                     </ul>
                 </div>
@@ -315,6 +430,42 @@
     <script>
         // Initialize Lucide icons
         lucide.createIcons();
+
+        // Hero background slider
+        const heroSection = document.getElementById('hero');
+        const heroSlides = heroSection ? heroSection.querySelectorAll('.hero-slide') : [];
+        const heroButtons = heroSection ? heroSection.querySelectorAll('.hero-control-btn') : [];
+
+        if (heroSlides.length > 1 && heroButtons.length === heroSlides.length) {
+            let currentSlide = 0;
+            let heroTimer;
+
+            const showHeroSlide = (index) => {
+                currentSlide = (index + heroSlides.length) % heroSlides.length;
+                heroSlides.forEach((slide, i) => {
+                    slide.classList.toggle('active', i === currentSlide);
+                });
+                heroButtons.forEach((button, i) => {
+                    button.classList.toggle('active', i === currentSlide);
+                });
+            };
+
+            const startHeroAutoplay = () => {
+                heroTimer = window.setInterval(() => {
+                    showHeroSlide(currentSlide + 1);
+                }, 10000);
+            };
+
+            heroButtons.forEach((button, index) => {
+                button.addEventListener('click', () => {
+                    showHeroSlide(index);
+                    window.clearInterval(heroTimer);
+                    startHeroAutoplay();
+                });
+            });
+
+            startHeroAutoplay();
+        }
 
         // Scroll reveal animation
         const revealElements = document.querySelectorAll('.reveal');
